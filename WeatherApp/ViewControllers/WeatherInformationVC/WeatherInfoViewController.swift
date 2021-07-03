@@ -14,7 +14,7 @@ enum CurrentWeatherModeSelection: Int, CaseIterable {
 }
 
 class WeatherInfoViewController: UIViewController {
-    
+    // MARK: - IBOutlets
     @IBOutlet weak var weatherTableView: UITableView!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -23,12 +23,16 @@ class WeatherInfoViewController: UIViewController {
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var humidityLabel: UILabel!
     @IBOutlet weak var windSpeedLabel: UILabel!
+    @IBOutlet weak var bookmarkButtton: UIButton!
     
+    // MARK: - Properties
+    var isBookmarked = false
+    let userDefaults = UserDefaults.standard
+    var allBookMarks = [[String:NSNumber]]()
     enum Sections: Int, CaseIterable{
         case Header
         case WeeklyHourly
     }
-    
     var weatherService: WeatherService?
     var location: CLLocationCoordinate2D?
     var currentWeatherMode = CurrentWeatherModeSelection.Today
@@ -39,19 +43,78 @@ class WeatherInfoViewController: UIViewController {
         }
     }
     
+    // MARK: - LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
         weatherService = WeatherService(delegate: self)
-        
-        if let _location = location{
-            weatherService?.oneCallWeatherData(lat: _location.latitude, long: _location.longitude)
-            self.getAddressFromLatLon(coordinate: _location) { (city) in
+        if let _location = location {
+            weatherService?.getWeatherData(lat: _location.latitude, long: _location.longitude)
+            Utils.shared.getAddressFromLatLon(coordinate: _location) { (city) in
                 self.cityLabel.text = city
             }
         }
-        
+        getBookmarks()
         self.setUpTableView()
+    }
+    
+    // MARK: - IBActions
+    @IBAction func bookMarkButtonAction(_ sender: Any) {
+        if isBookmarked{
+            removeBookmark()
+        }
+        else{
+            setBookmark()
+        }
+    }
+    
+    
+    @IBAction func closeButtonAction(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: - Actions
+    func getBookmarks(){
+        if let vals = userDefaults.object(forKey: AppConstants.bookmarks) as? [[String:NSNumber]]{
+            self.allBookMarks = vals
+            self.checkBookmark()
+        }
+    }
+    
+    func setBookmark() {
+        let locationLat = NSNumber(value:location?.latitude ?? 0)
+        let locationLon = NSNumber(value:location?.longitude ?? 0)
+        let locationArray = [["lat":locationLat,"long":locationLon]]
+        allBookMarks.append(contentsOf: locationArray)
+        userDefaults.set(allBookMarks, forKey:AppConstants.bookmarks)
+        isBookmarked = true
+        getBookmarks()
+    }
+    
+    func checkBookmark(){
+        let locationLat = NSNumber(value:location?.latitude ?? 0)
+        let locationLon = NSNumber(value:location?.longitude ?? 0)
+        let locationArray = ["lat":locationLat,"long":locationLon]
+        if allBookMarks.contains(locationArray) {
+            isBookmarked = true
+            self.bookmarkButtton.setImage(UIImage(systemName: "bookmark.circle.fill"), for: .normal)
+        }else{
+            isBookmarked = false
+            self.bookmarkButtton.setImage(UIImage(systemName: "bookmark.circle"), for: .normal)
+        }
+        
+    }
+    
+    func removeBookmark(){
+        let locationLat = NSNumber(value:location?.latitude ?? 0)
+        let locationLon = NSNumber(value:location?.longitude ?? 0)
+        let locationArray = ["lat":locationLat,"long":locationLon]
+        if let vals = userDefaults.object(forKey: AppConstants.bookmarks) as? Array<Dictionary<String,NSNumber>>{
+            allBookMarks = vals.filter({$0 != locationArray})
+            userDefaults.set(allBookMarks, forKey:AppConstants.bookmarks)
+            isBookmarked = false
+            getBookmarks()
+        }
     }
     
     func setUpTableView(){
@@ -73,35 +136,9 @@ class WeatherInfoViewController: UIViewController {
             self.weatherTableView.reloadData()
         }
     }
-    
-    @IBAction func closeButtonAction(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    func getAddressFromLatLon(coordinate:CLLocationCoordinate2D, completion: @escaping (String?)->Void) {
-        var center : CLLocationCoordinate2D = CLLocationCoordinate2D()
-        let ceo: CLGeocoder = CLGeocoder()
-        center.latitude = coordinate.latitude
-        center.longitude = coordinate.longitude
-        
-        let loc: CLLocation = CLLocation(latitude:center.latitude, longitude: center.longitude)
-        
-        ceo.reverseGeocodeLocation(loc, completionHandler:
-                                    {(placemarks, error) in
-                                        if (error != nil)
-                                        {
-                                            print("reverse geodcode fail: \(error!.localizedDescription)")
-                                        }
-                                        let pm = placemarks! as [CLPlacemark]
-                                        
-                                        if pm.count > 0 {
-                                            let pm = placemarks![0]
-                                            completion(pm.subLocality ?? pm.locality ?? pm.country ?? "Unknown")
-                                        }
-                                    })
-    }
 }
 
+// MARK: - TableView Methods
 extension WeatherInfoViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {

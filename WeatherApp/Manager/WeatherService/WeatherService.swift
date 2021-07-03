@@ -54,7 +54,7 @@ class WeatherService{
         }
     }
     
-    func oneCallWeatherData(lat: Double?,long: Double?){
+    func getWeatherData(lat: Double?,long: Double?){
         AppDelegate.instance.apimanager.getWeatherData(latitude: lat ?? 0.0, longitude: long ?? 0.0) { (data) in
             self.weatherData = data
         }

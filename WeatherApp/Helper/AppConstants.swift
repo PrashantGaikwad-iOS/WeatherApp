@@ -9,4 +9,5 @@ import Foundation
 
 struct AppConstants {
     static let appId = "fae7190d7e6433ec3a45285ffcf55c86"
+    static let bookmarks = "Bookmarks"
 }

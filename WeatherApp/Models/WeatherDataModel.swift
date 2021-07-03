@@ -7,7 +7,7 @@
 
 import Foundation
 
-class WeatherDataModel: Codable {
+struct WeatherDataModel: Codable {
     let lat: Double?
     let lon: Double?
     let timezone: String?
@@ -17,7 +17,7 @@ class WeatherDataModel: Codable {
   
 }
 
-class Current: Codable {
+struct Current: Codable {
     let dt: Int?
     let sunrise: Int?
     let sunset: Int?

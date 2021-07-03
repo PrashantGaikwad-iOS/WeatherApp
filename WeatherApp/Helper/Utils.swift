@@ -6,6 +6,35 @@
 //
 
 import Foundation
+import CoreLocation
+
+class Utils {
+    static let shared = Utils()
+    private init() {}
+    
+    func getAddressFromLatLon(coordinate: CLLocationCoordinate2D, completion: @escaping (String?) -> Void) {
+        var center : CLLocationCoordinate2D = CLLocationCoordinate2D()
+        let ceo: CLGeocoder = CLGeocoder()
+        center.latitude = coordinate.latitude
+        center.longitude = coordinate.longitude
+        let loc: CLLocation = CLLocation(latitude:center.latitude, longitude: center.longitude)
+        ceo.reverseGeocodeLocation(loc, completionHandler:
+                                    {(placemarks, error) in
+                                        if (error != nil)
+                                        {
+                                            print("reverse geodcode fail: \(error!.localizedDescription)")
+                                        }
+                                        
+                                        if let pm = placemarks {
+                                            if pm.count > 0 {
+                                                let pm = placemarks![0]
+                                                completion(pm.subLocality ?? pm.locality ?? pm.country ?? "Unknown")
+                                            }
+                                        }
+                                    })
+    }
+    
+}
 
 extension Date {
     static func getTodaysDate() -> String {
@@ -47,6 +76,6 @@ extension Double{
     }
     
     var farenheit: Double{
-       return  ((self - 273.15) * 1.8) + 32
+        return  ((self - 273.15) * 1.8) + 32
     }
 }

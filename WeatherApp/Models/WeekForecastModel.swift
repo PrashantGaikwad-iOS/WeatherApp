@@ -7,7 +7,7 @@
 
 import Foundation
 
-class WeekForecastModel: Codable {
+struct WeekForecastModel: Codable {
     let cod: String?
     let message, cnt: Int?
     let list: [List]?
@@ -22,7 +22,7 @@ class WeekForecastModel: Codable {
     }
 }
 
-class City: Codable {
+struct City: Codable {
     let id: Int?
     let name: String?
     let coord: Coord?
@@ -41,7 +41,7 @@ class City: Codable {
     }
 }
 
-class Coord: Codable {
+struct Coord: Codable {
     let lat, lon: Double?
 
     init(lat: Double?, lon: Double?) {
@@ -50,7 +50,7 @@ class Coord: Codable {
     }
 }
 
-class List: Codable {
+struct List: Codable {
     let dt: Int?
     let main: MainClass?
     let weather: [Weather]?
@@ -82,7 +82,7 @@ class List: Codable {
     }
 }
 
-class Clouds: Codable {
+struct Clouds: Codable {
     let all: Int?
 
     init(all: Int?) {
@@ -90,7 +90,7 @@ class Clouds: Codable {
     }
 }
 
-class MainClass: Codable {
+struct MainClass: Codable {
     let temp, feelsLike, tempMin, tempMax: Double?
     let pressure, seaLevel, grndLevel, humidity: Int?
     let tempKf: Double?
@@ -120,7 +120,7 @@ class MainClass: Codable {
     }
 }
 
-class Rain: Codable {
+struct Rain: Codable {
     let the3H: Double?
 
     enum CodingKeys: String, CodingKey {
@@ -132,7 +132,7 @@ class Rain: Codable {
     }
 }
 
-class Sys: Codable {
+struct Sys: Codable {
     let pod: Pod?
 
     init(pod: Pod?) {
@@ -145,7 +145,7 @@ enum Pod: String, Codable {
     case n = "n"
 }
 
-class Weather: Codable {
+struct Weather: Codable {
     let id: Int?
     let main: String?
     let weatherDescription: String?
@@ -165,7 +165,7 @@ class Weather: Codable {
     }
 }
 
-class Wind: Codable {
+struct Wind: Codable {
     let speed: Double?
     let deg: Int?
     let gust: Double?

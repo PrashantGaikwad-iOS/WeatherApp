@@ -7,7 +7,7 @@
 
 import Foundation
 
-class TodaysForecastModel: Codable {
+struct TodaysForecastModel: Codable {
     let coord: Coord?
     let weather: [Weather]?
     let base: String?
@@ -38,7 +38,7 @@ class TodaysForecastModel: Codable {
     }
 }
 
-class Main: Codable {
+struct Main: Codable {
     let temp, feelsLike, tempMin, tempMax: Double?
     let pressure, humidity, seaLevel, grndLevel: Int?
 

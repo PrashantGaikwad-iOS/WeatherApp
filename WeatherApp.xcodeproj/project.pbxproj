@@ -31,6 +31,8 @@
 		0DF52A5A26907B9100C0E720 /* SegmentationHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DF52A5426907B9100C0E720 /* SegmentationHeaderTableViewCell.xib */; };
 		0DF52A5F26907C4800C0E720 /* WeatherDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF52A5E26907C4800C0E720 /* WeatherDataModel.swift */; };
 		0DF52A6426907F0400C0E720 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF52A6326907F0400C0E720 /* Utils.swift */; };
+		0DF52A722690B0E500C0E720 /* BookmarkListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF52A702690B0E500C0E720 /* BookmarkListTableViewCell.swift */; };
+		0DF52A732690B0E500C0E720 /* BookmarkListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DF52A712690B0E500C0E720 /* BookmarkListTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,8 @@
 		0DF52A5426907B9100C0E720 /* SegmentationHeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SegmentationHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		0DF52A5E26907C4800C0E720 /* WeatherDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataModel.swift; sourceTree = "<group>"; };
 		0DF52A6326907F0400C0E720 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		0DF52A702690B0E500C0E720 /* BookmarkListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkListTableViewCell.swift; sourceTree = "<group>"; };
+		0DF52A712690B0E500C0E720 /* BookmarkListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookmarkListTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,7 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				0DF52A3C26907A3400C0E720 /* WeatherInformationVC */,
-				0DF529C82690524600C0E720 /* HomeViewController.swift */,
+				0DF52A6B2690B0BE00C0E720 /* HomeVC */,
 				0DF52A0B2690566500C0E720 /* CityViewController.swift */,
 				0DF52A102690567D00C0E720 /* HelpViewController.swift */,
 			);
@@ -252,6 +256,24 @@
 				0DF52A5326907B9100C0E720 /* WeatherDataTableViewCell.xib */,
 				0DF52A4F26907B9100C0E720 /* WeeklyHourlyCollectionViewCell.swift */,
 				0DF52A5026907B9100C0E720 /* WeeklyHourlyCollectionViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		0DF52A6B2690B0BE00C0E720 /* HomeVC */ = {
+			isa = PBXGroup;
+			children = (
+				0DF52A6F2690B0E500C0E720 /* Cells */,
+				0DF529C82690524600C0E720 /* HomeViewController.swift */,
+			);
+			path = HomeVC;
+			sourceTree = "<group>";
+		};
+		0DF52A6F2690B0E500C0E720 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0DF52A702690B0E500C0E720 /* BookmarkListTableViewCell.swift */,
+				0DF52A712690B0E500C0E720 /* BookmarkListTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -363,6 +385,7 @@
 				0DF529CE2690524800C0E720 /* Assets.xcassets in Resources */,
 				0DF52A5A26907B9100C0E720 /* SegmentationHeaderTableViewCell.xib in Resources */,
 				0DF52A5626907B9100C0E720 /* WeeklyHourlyCollectionViewCell.xib in Resources */,
+				0DF52A732690B0E500C0E720 /* BookmarkListTableViewCell.xib in Resources */,
 				0DF52A5926907B9100C0E720 /* WeatherDataTableViewCell.xib in Resources */,
 				0DF529CC2690524600C0E720 /* Main.storyboard in Resources */,
 			);
@@ -403,6 +426,7 @@
 				0DF529C72690524600C0E720 /* SceneDelegate.swift in Sources */,
 				0DF52A5F26907C4800C0E720 /* WeatherDataModel.swift in Sources */,
 				0DF52A0C2690566500C0E720 /* CityViewController.swift in Sources */,
+				0DF52A722690B0E500C0E720 /* BookmarkListTableViewCell.swift in Sources */,
 				0DF52A2B269072A300C0E720 /* WeekForecastModel.swift in Sources */,
 				0DF52A112690567D00C0E720 /* HelpViewController.swift in Sources */,
 			);

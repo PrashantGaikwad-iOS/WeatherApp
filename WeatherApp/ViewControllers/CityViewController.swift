@@ -92,5 +92,4 @@ extension CityViewController: CLLocationManagerDelegate {
             locationManager.stopUpdatingLocation()
         }
     }
-    
 }
