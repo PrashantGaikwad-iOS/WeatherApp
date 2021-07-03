@@ -6,12 +6,20 @@
 //
 
 import UIKit
+import WebKit
 
-class HelpViewController: UIViewController {
+class HelpViewController: UIViewController, WKNavigationDelegate {
 
+    var webView: WKWebView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        webView = WKWebView()
+        webView.navigationDelegate = self
+        view = webView
+        
+        let url = URL(string: "https://github.com/PrashantGaikwad-iOS/WeatherApp/blob/PrashantFeature/README.md")!
+        webView.load(URLRequest(url: url))
+        webView.allowsBackForwardNavigationGestures = true
     }
 }

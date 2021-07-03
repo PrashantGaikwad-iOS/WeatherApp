@@ -276,6 +276,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Weather App" id="j7r-rz-o9E">
+                        <barButtonItem key="leftBarButtonItem" title="Help" id="0fU-kq-4L3">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="showHelpAction:" destination="xqd-rg-4l6" id="Dle-cB-uz4"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="U4i-jF-1ol">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>

@@ -38,6 +38,13 @@ class HomeViewController: UIViewController {
         self.present(vc, animated: true)
     }
     
+    @IBAction func showHelpAction(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "HelpViewController") as? HelpViewController else { return }
+        vc.modalPresentationStyle = .formSheet
+        self.present(vc, animated: true)
+    }
+    
     // MARK: - Actions
     func setUpTableView() {
         homeTableView.delegate = self
