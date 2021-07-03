@@ -8,4 +8,6 @@ How to use Weather App -
 4. Save or remove the location using bookmark button present at the top right corner of the screen
 5. You will see the saved bookmarks on the Home screen in the list. You can also delete those saved locations using swipe left gesture on the home screen list.
 
-![Optional Text](../PrashantFeature/1.png)
+![Optional Text](../PrashantFeature/1.png) ![Optional Text](../PrashantFeature/2.png)
+![Optional Text](../PrashantFeature/3.png) ![Optional Text](../PrashantFeature/4.png)
+![Optional Text](../PrashantFeature/5.png)
