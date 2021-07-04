@@ -1,5 +1,5 @@
 //
-//  WeatherInfoViewController.swift
+//  CityWeatherInfoViewController.swift
 //  WeatherApp
 //
 //  Created by Prashant Gaikwad on 03/07/21.
@@ -13,7 +13,7 @@ enum CurrentWeatherModeSelection: Int, CaseIterable {
     case Weekly
 }
 
-class WeatherInfoViewController: UIViewController {
+class CityWeatherInfoViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var weatherTableView: UITableView!
     @IBOutlet weak var cityLabel: UILabel!
@@ -130,7 +130,7 @@ class WeatherInfoViewController: UIViewController {
             guard let weather = weatherData.current?.weather?.first else{return}
             self.weatherInfoLabel.text = weather.main ?? ""
             self.weatherIconImage.image = UIImage(named: weather.icon ?? "")
-            self.temperatureLabel.text = "\(weatherData.current?.temp?.celcius.rounded() ?? 0) °C"
+            self.temperatureLabel.text = "\(weatherData.current?.temp?.celsius.rounded() ?? 0) °C"
             self.humidityLabel.text = "Humidity: \(weatherData.current?.humidity ?? 0) %"
             self.windSpeedLabel.text = "Wind: \(weatherData.current?.wind_speed  ?? 0) miles/sec"
             self.weatherTableView.reloadData()
@@ -139,7 +139,7 @@ class WeatherInfoViewController: UIViewController {
 }
 
 // MARK: - TableView Methods
-extension WeatherInfoViewController: UITableViewDataSource, UITableViewDelegate {
+extension CityWeatherInfoViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return Sections.allCases.count
@@ -179,7 +179,7 @@ extension WeatherInfoViewController: UITableViewDataSource, UITableViewDelegate 
     }
 }
 
-extension WeatherInfoViewController: WeatherServiceDelegate {
+extension CityWeatherInfoViewController: WeatherServiceDelegate {
     func getCurrentWeather(data: TodaysForecastModel?) {
     }
     

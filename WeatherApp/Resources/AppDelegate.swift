@@ -10,20 +10,20 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    let apimanager = ApiManager()
+    let apimanager = APIManager()
     static var realDelegate: AppDelegate?
     internal class var instance: AppDelegate {
         get {
-            if Thread.isMainThread{
+            if Thread.isMainThread {
                 return UIApplication.shared.delegate as! AppDelegate;
             }
-            let dg = DispatchGroup();
-            dg.enter()
-            DispatchQueue.main.async{
+            let dispatchGroup = DispatchGroup();
+            dispatchGroup.enter()
+            DispatchQueue.main.async {
                 realDelegate = UIApplication.shared.delegate as? AppDelegate;
-                dg.leave();
+                dispatchGroup.leave();
             }
-            dg.wait();
+            dispatchGroup.wait();
             return realDelegate!;
         }
     }

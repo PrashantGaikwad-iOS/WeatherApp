@@ -1,5 +1,5 @@
 //
-//  WeatherInfoViewController.swift
+//  SegmentationHeaderTableViewCell.swift
 //  WeatherApp
 //
 //  Created by Prashant Gaikwad on 03/07/21.

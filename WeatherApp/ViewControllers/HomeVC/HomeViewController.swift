@@ -33,7 +33,7 @@ class HomeViewController: UIViewController {
     // MARK: - IBActions
     @IBAction func addAction(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let vc = storyboard.instantiateViewController(withIdentifier: "CityViewController") as? CityViewController else { return }
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "MapViewController") as? MapViewController else { return }
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true)
     }
@@ -97,7 +97,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "WeatherInfoViewController") as? WeatherInfoViewController else{return}
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "CityWeatherInfoViewController") as? CityWeatherInfoViewController else{return}
         vc.modalPresentationStyle = .fullScreen
         if let locationObject = allBookmarks?[indexPath.row] {
             let lat = Double(truncating: locationObject["lat"] ?? 0)

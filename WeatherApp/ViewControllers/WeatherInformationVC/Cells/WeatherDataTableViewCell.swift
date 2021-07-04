@@ -1,5 +1,5 @@
 //
-//  WeatherInfoViewController.swift
+//  WeatherDataTableViewCell.swift
 //  WeatherApp
 //
 //  Created by Prashant Gaikwad on 03/07/21.
@@ -85,13 +85,13 @@ extension WeatherDataTableViewCell:UICollectionViewDataSource, UICollectionViewD
                 let date = Date(timeIntervalSince1970: Double(hourly?[indexPath.row].dt ?? 0))
                 cell.topLabel.text = Date.getHourFrom(date: date)
                 cell.imageIcon.image  = UIImage(named: "\(hourly?[indexPath.row].weather?.first?.icon ?? "")")
-                cell.bottomLabel.text = "\(hourly?[indexPath.row].temp?.celcius.rounded() ?? 0) °C"
+                cell.bottomLabel.text = "\(hourly?[indexPath.row].temp?.celsius.rounded() ?? 0) °C"
                 break
             case .Weekly:
                 let date = Date(timeIntervalSince1970: Double(daily?[indexPath.row].dt ?? 0))
                 cell.topLabel.text = Date.getDayOfWeekFrom(date: date)
                 cell.imageIcon.image  = UIImage(named: "\(daily?[indexPath.row].weather?.first?.icon ?? "")")
-                cell.bottomLabel.text = "\(daily?[indexPath.row].temp?.day?.celcius.rounded() ?? 0) °C"
+                cell.bottomLabel.text = "\(daily?[indexPath.row].temp?.day?.celsius.rounded() ?? 0) °C"
                 break
             default:
                 break

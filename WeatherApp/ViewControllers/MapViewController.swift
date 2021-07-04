@@ -1,5 +1,5 @@
 //
-//  CityViewController.swift
+//  MapViewController.swift
 //  WeatherApp
 //
 //  Created by Prashant Gaikwad on 03/07/21.
@@ -9,7 +9,7 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class CityViewController: UIViewController {
+class MapViewController: UIViewController {
     
     // MARK: - IBOutlets
     @IBOutlet weak var map: MKMapView!
@@ -52,7 +52,7 @@ class CityViewController: UIViewController {
         let alert = UIAlertController(title: "Weather App", message: "Please select an option", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Weather information", style: .default , handler: { (UIAlertAction) in
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            guard let vc = storyboard.instantiateViewController(withIdentifier: "WeatherInfoViewController") as? WeatherInfoViewController else{return}
+            guard let vc = storyboard.instantiateViewController(withIdentifier: "CityWeatherInfoViewController") as? CityWeatherInfoViewController else{return}
             vc.modalPresentationStyle = .fullScreen
             vc.location = self.selectedCoordinate
             self.present(vc, animated: true)
@@ -62,9 +62,7 @@ class CityViewController: UIViewController {
         }))
         
         alert.popoverPresentationController?.sourceView = self.view
-        self.present(alert, animated: true, completion: {
-            print("inside completion block")
-        })
+        self.present(alert, animated: true)
     }
     
     @objc func addPin(longGesture: UIGestureRecognizer) {
@@ -82,7 +80,7 @@ class CityViewController: UIViewController {
     }
 }
 
-extension CityViewController: CLLocationManagerDelegate {
+extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             self.selectedCoordinate = location.coordinate

@@ -13,10 +13,10 @@ protocol WeatherServiceDelegate: AnyObject {
     func getOneCallWeatherData(data: WeatherDataModel?)
 }
 
-class WeatherService{
+class WeatherService {
     weak private var weatherServiceDelegate: WeatherServiceDelegate?
     
-    init(delegate: WeatherServiceDelegate){
+    init(delegate: WeatherServiceDelegate) {
         self.weatherServiceDelegate = delegate
     }
     

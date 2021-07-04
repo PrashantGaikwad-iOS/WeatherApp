@@ -1,5 +1,5 @@
 //
-//  WeatherInfoViewController.swift
+//  WeeklyHourlyCollectionViewCell.swift
 //  WeatherApp
 //
 //  Created by Prashant Gaikwad on 03/07/21.

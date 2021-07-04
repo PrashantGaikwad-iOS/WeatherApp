@@ -20,8 +20,7 @@ class Utils {
         let loc: CLLocation = CLLocation(latitude:center.latitude, longitude: center.longitude)
         ceo.reverseGeocodeLocation(loc, completionHandler:
                                     {(placemarks, error) in
-                                        if (error != nil)
-                                        {
+                                        if (error != nil) {
                                             print("reverse geodcode fail: \(error!.localizedDescription)")
                                         }
                                         
@@ -46,9 +45,7 @@ extension Date {
     }
     
     static func getHourFrom(date: Date) -> String {
-        
         let dateFormatter = DateFormatter()
-        
         dateFormatter.timeStyle = .short
         dateFormatter.dateStyle = .none
         let string = dateFormatter.string(from: date)
@@ -56,7 +53,6 @@ extension Date {
     }
     
     static func getDayOfWeekFrom(date: Date) -> String {
-        
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .none
         dateFormatter.dateStyle = .long
@@ -70,12 +66,12 @@ extension Date {
 }
 
 
-extension Double{
-    var celcius: Double{
+extension Double {
+    var celsius: Double {
         return self - 273.15
     }
     
-    var farenheit: Double{
+    var fahrenheit: Double {
         return  ((self - 273.15) * 1.8) + 32
     }
 }

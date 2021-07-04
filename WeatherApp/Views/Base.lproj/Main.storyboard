@@ -23,10 +23,10 @@
             </objects>
             <point key="canvasLocation" x="3323" y="126"/>
         </scene>
-        <!--Weather Info View Controller-->
+        <!--City Weather Info View Controller-->
         <scene sceneID="Ryn-Xq-mPX">
             <objects>
-                <viewController storyboardIdentifier="WeatherInfoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LRz-az-ndD" customClass="WeatherInfoViewController" customModule="Weather_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CityWeatherInfoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LRz-az-ndD" customClass="CityWeatherInfoViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hhH-GW-swD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -189,10 +189,10 @@
             </objects>
             <point key="canvasLocation" x="2557.971014492754" y="125.89285714285714"/>
         </scene>
-        <!--City View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="1Dx-Qm-FQ7">
             <objects>
-                <viewController storyboardIdentifier="CityViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="moF-GA-tyb" customClass="CityViewController" customModule="WeatherApp" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="moF-GA-tyb" customClass="MapViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hcn-rf-4Cr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
