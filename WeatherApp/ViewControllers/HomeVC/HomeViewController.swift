@@ -34,15 +34,13 @@ class HomeViewController: UIViewController {
     @IBAction func addAction(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = storyboard.instantiateViewController(withIdentifier: "MapViewController") as? MapViewController else { return }
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func showHelpAction(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let vc = storyboard.instantiateViewController(withIdentifier: "HelpViewController") as? HelpViewController else { return }
-        vc.modalPresentationStyle = .formSheet
-        self.present(vc, animated: true)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "SettingsViewController") as? SettingsViewController else { return }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     // MARK: - Actions
@@ -133,4 +131,3 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
 }
-

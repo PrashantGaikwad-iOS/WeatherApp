@@ -22,6 +22,7 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Map View"
         self.setupLocation()
         self.view.bringSubviewToFront(closeButton)
 

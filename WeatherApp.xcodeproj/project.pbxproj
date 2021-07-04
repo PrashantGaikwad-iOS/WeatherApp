@@ -33,6 +33,7 @@
 		0DF52A6426907F0400C0E720 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF52A6326907F0400C0E720 /* Utils.swift */; };
 		0DF52A722690B0E500C0E720 /* BookmarkListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF52A702690B0E500C0E720 /* BookmarkListTableViewCell.swift */; };
 		0DF52A732690B0E500C0E720 /* BookmarkListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DF52A712690B0E500C0E720 /* BookmarkListTableViewCell.xib */; };
+		0DF52A90269192FB00C0E720 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF52A8F269192FB00C0E720 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		0DF52A6326907F0400C0E720 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		0DF52A702690B0E500C0E720 /* BookmarkListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkListTableViewCell.swift; sourceTree = "<group>"; };
 		0DF52A712690B0E500C0E720 /* BookmarkListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookmarkListTableViewCell.xib; sourceTree = "<group>"; };
+		0DF52A8F269192FB00C0E720 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 				0DF52A6B2690B0BE00C0E720 /* HomeVC */,
 				0DF52A0B2690566500C0E720 /* MapViewController.swift */,
 				0DF52A102690567D00C0E720 /* HelpViewController.swift */,
+				0DF52A8F269192FB00C0E720 /* SettingsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 				0DF52A722690B0E500C0E720 /* BookmarkListTableViewCell.swift in Sources */,
 				0DF52A2B269072A300C0E720 /* WeekForecastModel.swift in Sources */,
 				0DF52A112690567D00C0E720 /* HelpViewController.swift in Sources */,
+				0DF52A90269192FB00C0E720 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
